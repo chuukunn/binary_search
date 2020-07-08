@@ -11,8 +11,16 @@ int main() {
 	for (i = 0; i < n; i++) {
 		scanf("%d", &A[i]);
 	}
-	ub = 1000000000;
-	lb = 1;
+	int sum = 0;
+	int max = 0;
+	for (i = 0; i < n; i++) {
+		sum = sum + A[i];
+		if (A[i] >= A[max]) {
+			max = i;
+		}
+	}
+	ub = A[max];
+	lb = sum / k - 1;
 	int count = 0;
 	int all = 0;
 	while (ub - lb > 1) {
@@ -20,7 +28,7 @@ int main() {
 		count = 0;
 		int mid = (lb + ub) / 2;
 		for (i = 0; i < n; i++) {
-			count = (A[i] / mid) + 1;
+			count = (A[i] + mid - 1) / mid;
 			all = all + count;
 		}
 		if (all <= k) {
@@ -30,6 +38,6 @@ int main() {
 			lb = mid;
 		}
 	}
-	printf("%d\n", lb);
+	printf("%d\n", ub);
 	return 0;
 }
