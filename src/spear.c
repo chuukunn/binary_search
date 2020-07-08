@@ -11,8 +11,13 @@ int main() {
 	for (i = 0; i < n; i++) {
 		scanf("%d", &A[i]);
 	}
-	ub = 1000000000;
-	lb = 0;
+	int sum = 0;
+	for (i = 0; i < n; i++) {
+		sum = sum + A[i];
+	}
+
+	ub = (k + sum - 1) / k;
+	lb = 1;
 	int count = 0;
 	int all = 0;
 	while (ub - lb > 1) {
