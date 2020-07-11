@@ -15,9 +15,8 @@ int main() {
 	for (i = 0; i < n; i++) {
 		sum = sum + A[i];
 	}
-
-	ub = (k + sum - 1) / k;
-	lb = 1;
+	ub = 1 + sum / k;
+	lb = 0;
 	int count = 0;
 	int all = 0;
 	while (ub - lb > 1) {

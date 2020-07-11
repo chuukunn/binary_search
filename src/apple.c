@@ -20,7 +20,9 @@ int main() {
 		}
 	}
 	ub = A[max];
-	lb = sum / k - 1;
+	printf("%d\n", sum);
+	lb = sum / k;
+	printf("%d\n", lb);
 	int count = 0;
 	int all = 0;
 	while (ub - lb > 1) {
